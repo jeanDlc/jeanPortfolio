@@ -6,13 +6,16 @@ const theme = createMuiTheme({
             'Montserrat',
             'sans-serif'
         ].join(','),
+        fontSize:'1.2rem',
+        
     },
     palette:{
         //type:'dark',
         primary: {
             main: '#1c1b1b',
+            light:'#fff4f4'
         },
-        secondary: {
+        secondary: {    
             main: '#f06071',
         },
     },
