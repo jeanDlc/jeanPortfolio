@@ -5,6 +5,12 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
 }
+:root{
+  --mainColor:red;
+}
+.bgred{
+  background-color: red;
+}
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
