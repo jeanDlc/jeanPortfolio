@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
-        padding:'1.5rem 1rem',
+        padding:'.5rem 1rem',
         '& svg':{
             fontSize:'2.5rem',
             color:theme.palette.primary.light
