@@ -179,13 +179,13 @@ const Header = ({ siteTitle }) => {
                   <ListItemText primary={'Home'} />
               </ListItem>
             </Link>
-            <Link to='/' >
+            <Link to='/about-me' >
               <ListItem button key={3}>
                   <ListItemIcon><InfoIcon /></ListItemIcon>
                   <ListItemText primary={'About me'} />
               </ListItem>
             </Link>
-            <Link to='/contact' >
+            <Link to='/my-work' >
               <ListItem button key={3}>
                   <ListItemIcon><CodeIcon /></ListItemIcon>
                   <ListItemText primary={'My Work'} />

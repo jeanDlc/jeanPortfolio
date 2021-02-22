@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 /**styles******************************************************************** */
 const useStyles = makeStyles((theme)=> ({
     constenedorDiv:{
-        marginBottom:'2rem'
+        marginBottom:''
     },
     
     info:{
