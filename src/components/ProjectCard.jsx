@@ -43,7 +43,7 @@ const ProjectCard = ({project}) => {
                 <p>{tecnologias.map(tecnologia=>(
                     <span className={classes.tecnologias} key={tecnologia} >{tecnologia}, </span>
                 ))} </p>
-                <Link to={'/'} className={classes.enlace} >
+                <Link to={`/${slug}`} className={classes.enlace} >
                     <Button variant="outlined" color="secondary" >See more</Button>
                 </Link>
             </div>
