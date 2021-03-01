@@ -18,7 +18,7 @@ import CodeIcon from '@material-ui/icons/Code';
 import ListIcon from '@material-ui/icons/List';
 const ProjectPreview = ({data}) => {
     //obteniendo cada valor de lo extraído por datoCMS y graphql
-    const {titulo, slug, lenguajes, enlace, github, descripcion, imagen}=data.allDatoCmsProyecto.edges[0].node;
+    const {titulo, lenguajes, enlace, github, descripcion, imagen}=data.allDatoCmsProyecto.edges[0].node;
     //transformando a JSON para mejor manipulación
     const lenguajesJSON=JSON.parse(lenguajes);
 
@@ -34,10 +34,11 @@ const ProjectPreview = ({data}) => {
                             <a href={github} 
                                 style={{marginLeft:'.7rem'}} 
                                 target='_blank'
+                                rel='noreferrer'
                             > {github} </a>
                         </Grid>
                         <Grid item xs={12} md={3} >
-                            <Button variant="contained" fullWidth={true} size='large'  color="primary" href={enlace} target='_blank' >
+                            <Button variant="contained" fullWidth={true} size='large'  color="primary" href={enlace} target='_blank' rel='noreferrer' >
                                 Visit
                             </Button>
                         </Grid>
@@ -85,7 +86,6 @@ export  const query=graphql`
             edges {
                 node {
                     titulo
-                    slug
                     lenguajes
                     enlace
                     descripcion,

@@ -30,9 +30,9 @@ const useStyles = makeStyles((theme)=>({
 }));
 /**Component************************************************************************ */
 const MyWork = ({data}) => {
-    console.log(data.allDatoCmsProyecto.edges);
-    const classes=useStyles();
     
+    const classes=useStyles();
+    if(!data) return null;
     return ( 
         
         <Layout>
@@ -41,7 +41,7 @@ const MyWork = ({data}) => {
                 <p className={classes.description}>
                     You can see all my work and personal projects, if you like some of them , <Link className={classes.enlace} to='/contact' >contact to me</Link> 
                 </p>
-                <Grid container spacing={3}>
+                <Grid component='main' container spacing={3}>
                     {data.allDatoCmsProyecto.edges.map(project=>(
                         <Grid key={project.node.slug} item xs={12} md={6} >
                             <ProjectCard project={project} />

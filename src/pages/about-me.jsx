@@ -32,12 +32,12 @@ const useStyles = makeStyles(theme=> ({
 const AboutMe = ({data}) => {
     const skills=JSON.parse(data.datoCmsAboutMe.skills).skills;
     const classes=useStyles();
-    console.log(skills);
+    
     if(!data) return null;
     return ( 
         <Layout>
             <Container maxWidth="md" >
-                <section className={classes.section} >
+                <main className={classes.section} >
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={8}>
                             <h1>{data.datoCmsAboutMe.titulo}</h1>
@@ -52,7 +52,7 @@ const AboutMe = ({data}) => {
                             <Img fluid={data.datoCmsAboutMe.imagen.fluid} />
                         </Grid>
                     </Grid>
-                </section>
+                </main>
                 <Grid container spacing={0}>
                     <Grid item xs={12} md={4}>
                             <List component="div"

@@ -7,7 +7,9 @@ import ProjectsPreview from "../components/ProjectsPreview";
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <PresentationCard/>
+    <main>
+      <PresentationCard/>
+    </main>
     <ProjectsPreview/>
   </Layout>
 )
