@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from "./header"
 import "./layout.css"
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,6 +22,7 @@ const Layout = ({ children }) => {
       <CssBaseline/>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <>{children}</>
+      <Footer/>
     </>
   )
 }

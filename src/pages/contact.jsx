@@ -88,8 +88,8 @@ const Contact = () => {
     }
     return ( 
         <Layout>
-            <Container maxWidth='sm' >
-                <Box component="div"  marginY={10} >
+            <Container maxWidth='sm'  >
+                <Box component="div"  marginY={10} minHeight='70vh' >
                     {serverState.showResponse && (
                     
                         <MessageModal success={serverState.status} msg={serverState.msg} />
