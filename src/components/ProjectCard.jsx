@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme)=> ({
         transition: 'all .3s ease-out',
         backgroundColor:theme.palette.primary.main ,
         '&:hover':{
-            backgroundColor:'rgba(21,19,19,.95)' ,
+            backgroundColor:'#131212' ,
         },
     },
     enlace:{

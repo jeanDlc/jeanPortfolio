@@ -32,6 +32,8 @@ const Contact = () => {
         msg:null,
         showResponse:false
     });
+
+    //manejando la respuesta de GETFORM
     const handleServerResponse = (status, msg,showResponse) => {
 
         setServerState({
@@ -53,10 +55,6 @@ const Contact = () => {
 
     const handleChange=e=>{
 
-        //si intenta hacer submit con los campos vacíos, no se lo va a permitir
-        if(e.target.value.trim()==='' ){
-            return;
-        }
         //llenar el state del formulario
         setDataContact({
             ...dataContact,
@@ -65,9 +63,16 @@ const Contact = () => {
     }
     const handleSubmit=e=>{
         e.preventDefault();
+
+        //todos los campos deben estar llenos
+        if( dataContact.nombre.trim()==='' || dataContact.apellido.trim()==='' ||dataContact.email.trim()==='' ||dataContact.mensaje.trim()==='' ){
+            handleServerResponse(false, "Please fill all the fields" , true);
+            return;
+        }
+
+        const urlGetForm=process.env.GET_FORM_URL;
         
-        const urlGetForm='https://getform.io/f/be571edd-5a79-4ed7-9714-55b3eb71c08b';
-        
+        //creando la data que será guardada en GETFORM
         const formdata=new FormData();
         formdata.append('nombre', dataContact.nombre);
         formdata.append('apellido', dataContact.apellido);

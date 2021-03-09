@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme=> ({
     },
     item: {
       textAlign:'center',
-      width:'100%'
+      width:'100%',
+      textTransform:'capitalize'
     },
     headerList:{
         textAlign:'center',
@@ -33,7 +34,7 @@ const AboutMe = ({data}) => {
     const skills=JSON.parse(data.datoCmsAboutMe.skills).skills;
     const classes=useStyles();
     
-    if(!data) return null;
+    if(!data?.datoCmsAboutMe?.skills) return null;
     return ( 
         <Layout>
             <Container maxWidth="md" >

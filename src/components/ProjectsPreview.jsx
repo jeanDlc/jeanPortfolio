@@ -35,18 +35,13 @@ const ProjectsPreview = () => {
                     slug
                     titulo
                     lenguajes
-                    imagen {
-                        fluid(maxWidth: 1920) {
-                            ...GatsbyDatoCmsFluid
-                        }
-                    }
                 }
             }
             }
         }
       
     `);
-    
+    if( !projectsData?.allDatoCmsProyecto?.edges ) return null;
     return ( 
         <Container maxWidth="lg">
             <h2 className={classes.titulo} > <CodeIcon/> My work</h2>

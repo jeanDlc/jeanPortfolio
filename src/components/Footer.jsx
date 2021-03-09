@@ -18,7 +18,7 @@ const Footer = () => {
                         <Box textAlign='center' >Jean Pierre de la Cruz</Box>
                     </Grid>
                     <Grid item  xs={12} md={4} >
-                        <Box textAlign='center' >&copy; Todos los derechos reservados {new Date().getFullYear()} </Box>
+                        <Box textAlign='center' >Copyright  &copy; All rights reserved. {new Date().getFullYear()} </Box>
                     </Grid>
                     <Grid item  xs={12} md={4} >
                         <Box textAlign='center' > 
