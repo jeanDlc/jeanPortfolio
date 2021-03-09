@@ -53,7 +53,14 @@ const ProjectPreview = ({data}) => {
                         <CardContent>
                             <Grid container spacing={3} justify="space-between">
                                 <Grid item xs={12} md={6} >
+                                <a href={enlace} 
+                                    style={{display:'block'}} 
+                                    target='_blank'
+                                    rel='noreferrer'
+                                > 
                                     <Img style={{borderRadius:'.7rem'}} fluid={imagen.fluid} />
+                                </a>
+                                    
                                 </Grid>
                                 <Grid item xs={12} md={6} >
                                         <h3> <ListIcon/> Technologies</h3>

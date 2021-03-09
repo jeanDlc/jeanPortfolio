@@ -72,7 +72,8 @@ const useStyles = makeStyles((theme) => ({
       flexShrink: 0,
       fontSize:'1.5rem',
       '& a':{
-        color:theme.palette.primary.main
+        color:theme.palette.primary.main,
+        display:'block'
       },
     },
     drawerPaper: {
@@ -173,7 +174,7 @@ const Header = ({ siteTitle }) => {
       </div>
         <Divider />
         <List>
-            <Link to='/' >
+            <Link to='/'>
               <ListItem button key={1}>
                   <ListItemIcon><HomeIcon /></ListItemIcon>
                   <ListItemText primary={'Home'} />

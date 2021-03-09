@@ -15,7 +15,7 @@ const Footer = () => {
             <Container  >
                 <Grid container spacing={3} justify='space-between'  >
                     <Grid item  xs={12} md={4}>
-                        <Box textAlign='center' >Jean Pierre de la Cruz</Box>
+                        <Box textAlign='center' >Jean Pierre De la Cruz</Box>
                     </Grid>
                     <Grid item  xs={12} md={4} >
                         <Box textAlign='center' >Copyright  &copy; All rights reserved. {new Date().getFullYear()} </Box>
