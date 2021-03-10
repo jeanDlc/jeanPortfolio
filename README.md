@@ -5,38 +5,48 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's default starter
+  Jean Pierre de la Cruz's portfolio
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Este es mi portafolio hecho con Gatsby y material UI
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
-## 🚀 Quick start
+## 🚀 Notas importantes
 
-1.  **Create a Gatsby site.**
+1.  **Gatsby.**
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+    Se usó Gatsby por ser ideal para un portafolio estático.
 
     ```shell
     # create a new Gatsby site using the default starter
     gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
     ```
 
-1.  **Start developing.**
+1.  **Material UI.**
 
-    Navigate into your new site’s directory and start it up.
+    Este proyecto usó el core de material ui
+    Este framework fue usado para las interfaces, Se necesita un plugin.
+    [plugin]: https://www.gatsbyjs.com/plugins/gatsby-plugin-material-ui/?=material%20u
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+1.  **Material UI icons.**
 
-1.  **Open the source code and start editing!**
+    Para más estilos, también se instaló el paquete de iconos de material UI
 
-    Your site is now running at `http://localhost:8000`!
+1.  **GetForm**
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+  GetForm fue usado para manejar el formulario de contacto
+  [getform]: https://getform.io/
+
+1.  **Axios**
+
+    Axios fue usado para el envío de datos hacia GetForm
+
+1.  **Todo proyecto de Gatsby se abre en el puerto 8000**
+
+    El sitio corre en `http://localhost:8000`!
+
+    _Note: GraphiQL: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
     Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
@@ -82,15 +92,8 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 12. **`README.md`**: A text file containing useful reference information about your project.
 
-## 🎓 Learning Gatsby
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
+## 💫 Deploy en Netlify o Vercel
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 

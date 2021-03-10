@@ -10,6 +10,8 @@ import SendIcon from '@material-ui/icons/Send';
 import EmailIcon from '@material-ui/icons/Email';
 import Typography from '@material-ui/core/Typography';
 import MessageModal from '../components/MessageModal';
+import useValidation from '../hooks/useValidation';
+import contactFormValidation from '../validation/contactFormValidation';
 
 const Contact = () => {
 
@@ -20,12 +22,39 @@ const Contact = () => {
         email:'',
         mensaje:''
     }
-    const [dataContact, setDataContact]=useState(INITIAL_STATE);
 
-    //para resetear el formulario
-    const resetForm=()=>{
-        setDataContact(INITIAL_STATE);
+    //enviar la data a GETFORM
+    const sendContactData=()=>{
+        //usar la url de getFotm api
+        const urlGetForm=process.env.GET_FORM_URL;
+        
+        //creando la data que será guardada en GETFORM
+        const formdata=new FormData();
+        formdata.append('nombre', valores.nombre);
+        formdata.append('apellido', valores.apellido);
+        formdata.append('email', valores.email);
+        formdata.append('mensaje', valores.mensaje);
+        handleServerResponse(true, "Great, I will be in touch" , true);
+        
+        //se envía por axios pq así lo recomienda la documentación
+        axios({
+            method:'post',
+            url:urlGetForm,
+            data:formdata
+        }).then(r => {
+            handleServerResponse(true, "Great, I will be in touch" , true);
+        })
+        .catch(r => {
+            handleServerResponse(false, "An error occurred, please try again later" , true);
+        });
     }
+
+    //HOOK: maneja validación del contact form
+    const {valores,
+        handleChange,
+        handleSubmit,
+        errores} = useValidation(INITIAL_STATE,contactFormValidation,sendContactData);
+   
     //state para el estado de respuesta de GETFORM
     const [serverState, setServerState] = useState({
         status: null,
@@ -48,49 +77,9 @@ const Contact = () => {
                 showResponse:false
             });
         }, 3000);
-        if (status) {
-          resetForm();
-        }
     };
 
-    const handleChange=e=>{
-
-        //llenar el state del formulario
-        setDataContact({
-            ...dataContact,
-            [e.target.name]:e.target.value
-        });
-    }
-    const handleSubmit=e=>{
-        e.preventDefault();
-
-        //todos los campos deben estar llenos
-        if( dataContact.nombre.trim()==='' || dataContact.apellido.trim()==='' ||dataContact.email.trim()==='' ||dataContact.mensaje.trim()==='' ){
-            handleServerResponse(false, "Please fill all the fields" , true);
-            return;
-        }
-
-        const urlGetForm=process.env.GET_FORM_URL;
-        
-        //creando la data que será guardada en GETFORM
-        const formdata=new FormData();
-        formdata.append('nombre', dataContact.nombre);
-        formdata.append('apellido', dataContact.apellido);
-        formdata.append('email', dataContact.email);
-        formdata.append('mensaje', dataContact.mensaje);
-        handleServerResponse(true, "Great, I will be in touch" , true);
-        
-        axios({
-            method:'post',
-            url:urlGetForm,
-            data:formdata
-        }).then(r => {
-            handleServerResponse(true, "Great, I will be in touch" , true);
-        })
-        .catch(r => {
-            handleServerResponse(false, "An error occurred, please try again later" , true);
-        });
-    }
+    
     return ( 
         <Layout>
             <Container maxWidth='sm'  >
@@ -115,8 +104,9 @@ const Contact = () => {
                                 variant="outlined" 
                                 type='text'
                                 required={true}
-                                value={dataContact.nombre}
+                                value={valores.nombre}
                                 onChange={handleChange}
+                                error={errores.nombre? true: false}
 
                             />
                         </FormControl>
@@ -127,8 +117,9 @@ const Contact = () => {
                                 variant="outlined"
                                 type='text' 
                                 required={true}
-                                value={dataContact.apellido}
+                                value={valores.apellido}
                                 onChange={handleChange}
+                                error={errores.apellido? true: false}
                             />
                         </FormControl>
                         <FormControl fullWidth={true} component='div' margin='normal' size='medium' variant='standard' >
@@ -138,9 +129,9 @@ const Contact = () => {
                                 variant="outlined"
                                 type='email' 
                                 required={true}
-                                value={dataContact.email}
+                                value={valores.email}
                                 onChange={handleChange}
-                                
+                                error={errores.email? true: false}
                             />
                         </FormControl>
                         <FormControl fullWidth={true} component='div' margin='normal' size='medium' variant='standard' >
@@ -151,8 +142,9 @@ const Contact = () => {
                                 multiline={true}
                                 rows={8}
                                 required={true}
-                                value={dataContact.mensaje}
+                                value={valores.mensaje}
                                 onChange={handleChange}
+                                error={errores.mensaje? true: false}
                             />
                         </FormControl>
                         <Button color='primary' 

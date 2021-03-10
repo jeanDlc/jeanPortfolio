@@ -1,5 +1,4 @@
 import React from "react"
-import Box from '@material-ui/core/Box';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { makeStyles } from '@material-ui/core/styles';
