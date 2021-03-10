@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: `JeanDLC`,
@@ -51,7 +54,7 @@ module.exports = {
       options: {
         // You can find your read-only API token under the Settings > API tokens
         // section of your administrative area. Make sure to grant both CDA and CMA permissions.
-        apiToken: `1cdf6ced45b037c641af8944d65ff1`,
+        apiToken: `${process.env.GATSBY_DATOCMS_API_KEY}`,
   
         // The project environment to read from. Defaults to the primary environment:
         environment: `main`,
