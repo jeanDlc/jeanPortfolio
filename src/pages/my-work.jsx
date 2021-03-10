@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme)=>({
     },
     description:{
         marginBottom:'3rem',
+        textAlign:'center'
     },
     enlace:{
         color:theme.palette.secondary.main,
