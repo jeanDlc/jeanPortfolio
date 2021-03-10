@@ -27,6 +27,8 @@ const Contact = () => {
     const sendContactData=()=>{
         //usar la url de getFotm api
         const urlGetForm=process.env.GET_FORM_URL;
+        console.log(urlGetForm);
+        
         
         //creando la data que será guardada en GETFORM
         const formdata=new FormData();
