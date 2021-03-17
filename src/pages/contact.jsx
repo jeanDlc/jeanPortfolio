@@ -12,9 +12,9 @@ import Typography from '@material-ui/core/Typography';
 import MessageModal from '../components/MessageModal';
 import useValidation from '../hooks/useValidation';
 import contactFormValidation from '../validation/contactFormValidation';
-
+import LinearProgress from '@material-ui/core/LinearProgress';
 const Contact = () => {
-
+    const [loading, setLoading]=useState(false);
     //state para la data del formulario
     const INITIAL_STATE={
         nombre:'',
@@ -35,8 +35,8 @@ const Contact = () => {
         formdata.append('apellido', valores.apellido);
         formdata.append('email', valores.email);
         formdata.append('mensaje', valores.mensaje);
-        handleServerResponse(true, "Great, I will be in touch" , true);
         
+        setLoading(true);
         //se envía por axios pq así lo recomienda la documentación
         axios({
             method:'post',
@@ -65,7 +65,7 @@ const Contact = () => {
 
     //manejando la respuesta de GETFORM
     const handleServerResponse = (status, msg,showResponse) => {
-
+        setLoading(false);
         setServerState({
             status,
             msg,
@@ -77,7 +77,7 @@ const Contact = () => {
                 msg:null,
                 showResponse:false
             });
-        }, 3000);
+        }, 5000);
     };
 
     
@@ -148,6 +148,7 @@ const Contact = () => {
                                 error={errores.mensaje? true: false}
                             />
                         </FormControl>
+                        {loading && <LinearProgress/>}
                         <Button color='primary' 
                             variant='contained' 
                             startIcon={<SendIcon/>}
